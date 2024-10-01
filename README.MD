@@ -5,7 +5,7 @@ O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para
 
 ## Escopo do Sistema:
 
-Cadastro de Máquinas, Equipamentos e Histórico de Manutenção: 
+**Cadastro de Máquinas, Equipamentos e Histórico de Manutenção:**
 Máquinas e Equipamentos: Registro completo de cada máquina ou equipamento presente no parque industrial, incluindo:
 Identificação (código, nome da máquina, modelo, fabricante).
 Data de aquisição e vida útil estimada.
