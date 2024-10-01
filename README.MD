@@ -1,11 +1,11 @@
 # Sistema de Controle de Estoque e Suprimentos Industriais 
 
-## Descrição:
+**Descrição**:
 O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para gerenciar o ciclo de manutenção de máquinas e equipamentos industriais. O sistema visa controlar as manutenções preventivas programadas, registrar ocorrências de falhas e gerenciar a alocação de técnicos para intervenções corretivas, além de gerar relatórios detalhados sobre o histórico de manutenção e desempenho dos equipamentos.
 
 ## Escopo do Sistema:
 
-### Cadastro de Máquinas, Equipamentos e Histórico de Manutenção:
+### 1 - Cadastro de Máquinas, Equipamentos e Histórico de Manutenção:
 **Máquinas e Equipamentos:** Registro completo de cada máquina ou equipamento presente no parque industrial, incluindo:
 - Identificação (código, nome da máquina, modelo, fabricante).
 - Data de aquisição e vida útil estimada.
@@ -37,7 +37,7 @@ O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para
 
 **Acompanhamento em Tempo Real:** Visualização em tempo real das manutenções corretivas em andamento, com informações sobre a fase de execução, técnico alocado, e tempo restante previsto.
 
-## Manutenção Preventiva Programada:
+## 2 - Manutenção Preventiva Programada:
 **Criação de Planos de Manutenção Preventiva:** O sistema deve permitir a criação de planos de manutenção preventiva com base em cronogramas pré-definidos ou medições de uso (como horas de operação ou ciclos de produção):
 - Definição de frequência (diária, semanal, mensal, trimestral, etc.).
 - Tarefas a serem realizadas em cada inspeção ou intervenção.
@@ -49,7 +49,7 @@ O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para
 - Registro de status de cada ordem de serviço (pendente, em andamento, concluída).
 - Relatório de conformidade com o cronograma de manutenção preventiva.
 
-## Geração de Relatórios de Histórico de Manutenção:
+## 3 - Geração de Relatórios de Histórico de Manutenção:
 **Relatórios de Manutenção Corretiva e Preventiva:** O sistema deve ser capaz de gerar relatórios detalhados de todas as manutenções realizadas:
 - Frequência de manutenções preventivas versus corretivas.
 - Comparação entre o tempo planejado e o tempo real das manutenções.
@@ -61,7 +61,7 @@ O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para
 - Qualidade do serviço (com base no número de reincidências de falhas).
 - Carga de trabalho e número de intervenções realizadas.
 
-## Interface Gráfica para Acompanhamento do Status de Manutenção e Alocação de Técnicos:
+## 4 - Interface Gráfica para Acompanhamento do Status de Manutenção e Alocação de Técnicos:
 **Painel de Controle em Tempo Real:** A interface gráfica deve permitir o acompanhamento em tempo real do status de todas as manutenções (preventivas e corretivas) e do desempenho das máquinas. Funcionalidades incluem:
 - Visualização de quais máquinas estão em operação, em manutenção ou paradas.
 - Status das ordens de serviço (pendentes, em execução, concluídas).
