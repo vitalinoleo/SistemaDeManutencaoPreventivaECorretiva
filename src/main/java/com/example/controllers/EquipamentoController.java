@@ -1,24 +1,41 @@
 package com.example.controllers;
 
-import java.util.ArrayList;
+import com.example.connection.EquipamentoDAO;
+import com.example.models.Equipamento;
+
 import java.util.List;
 
-import com.example.Identificacao;
-
 public class EquipamentoController {
-    private List<Identificacao> equipamentos = new ArrayList<>();
+    private EquipamentoDAO equipamentoDAO;
 
-    // Cadastrando equipamentos
-    public void cadastrarEquipamento(Identificacao equipamento) {
-        equipamentos.add(equipamento);
-        System.out.println("Equipamento cadastrado com sucesso!");
+    public EquipamentoController() {
+        this.equipamentoDAO = new EquipamentoDAO();
     }
 
-    // Listando equipamentos
-    public void listarEquipamento() {
-        System.out.println("Lista de Equipamentos:");
-        for (Identificacao equipamento : equipamentos) {
-            System.out.println(equipamento);
-        }
+    // Adiciona um novo equipamento
+    public void adicionarEquipamento(int codigo, String nome, String modelo, String fabricante, String dataAquisicao, int vidaUtil, String localizacao, String status) {
+        Equipamento equipamento = new Equipamento(codigo, nome, modelo, fabricante, dataAquisicao, vidaUtil, localizacao, status);
+        equipamentoDAO.adicionarEquipamento(equipamento);
+    }
+
+    // Lista todos os equipamentos
+    public List<Equipamento> listarEquipamentos() {
+        return equipamentoDAO.listarEquipamentos();
+    }
+
+    // Busca um equipamento pelo código
+    public Equipamento buscarEquipamento(int codigo) {
+        return equipamentoDAO.buscarEquipamento(codigo);
+    }
+
+    // Atualiza um equipamento
+    public boolean atualizarEquipamento(int codigo, String nome, String modelo, String fabricante, String dataAquisicao, int vidaUtil, String localizacao, String status) {
+        Equipamento equipamento = new Equipamento(codigo, nome, modelo, fabricante, dataAquisicao, vidaUtil, localizacao, status);
+        return equipamentoDAO.atualizarEquipamento(equipamento);
+    }
+
+    // Remove um equipamento pelo código
+    public boolean removerEquipamento(int codigo) {
+        return equipamentoDAO.removerEquipamento(codigo);
     }
 }

@@ -21,7 +21,7 @@ public class EquipamentoDAO {
 
     // Adiciona um novo equipamento ao banco de dados
     public void adicionarEquipamento(Equipamento equipamento) {
-        String sql = "INSERT INTO equipamentos (codigo, nome, modelo, fabricante) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO equipamentos (codigo, nome, modelo, fabricante, data_aquisicao, vida_util, localizacao, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = DriverManager.getConnection(url, usuario, senha);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -29,6 +29,10 @@ public class EquipamentoDAO {
             pstmt.setString(2, equipamento.getNome());
             pstmt.setString(3, equipamento.getModelo());
             pstmt.setString(4, equipamento.getFabricante());
+            pstmt.setString(5, equipamento.getDataAquisicao());
+            pstmt.setInt(6, equipamento.getVidaUtil());
+            pstmt.setString(7, equipamento.getLocalizacao());
+            pstmt.setString(8, equipamento.getStatus());
             pstmt.executeUpdate();
             System.out.println("Equipamento adicionado com sucesso!");
 
@@ -51,7 +55,11 @@ public class EquipamentoDAO {
                         rs.getInt("codigo"),
                         rs.getString("nome"),
                         rs.getString("modelo"),
-                        rs.getString("fabricante")
+                        rs.getString("fabricante"),
+                        rs.getString("data_aquisicao"),
+                        rs.getInt("vida_util"),
+                        rs.getString("localizacao"),
+                        rs.getString("status")
                 );
                 equipamentos.add(equipamento);
             }
@@ -75,7 +83,11 @@ public class EquipamentoDAO {
                         rs.getInt("codigo"),
                         rs.getString("nome"),
                         rs.getString("modelo"),
-                        rs.getString("fabricante")
+                        rs.getString("fabricante"),
+                        rs.getString("data_aquisicao"),
+                        rs.getInt("vida_util"),
+                        rs.getString("localizacao"),
+                        rs.getString("status")
                 );
             }
 
@@ -87,14 +99,18 @@ public class EquipamentoDAO {
 
     // Atualiza um equipamento no banco de dados
     public boolean atualizarEquipamento(Equipamento equipamento) {
-        String sql = "UPDATE equipamentos SET nome = ?, modelo = ?, fabricante = ? WHERE codigo = ?";
+        String sql = "UPDATE equipamentos SET nome = ?, modelo = ?, fabricante = ?, data_aquisicao = ?, vida_util = ?, localizacao = ?, status = ? WHERE codigo = ?";
         try (Connection conn = DriverManager.getConnection(url, usuario, senha);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, equipamento.getNome());
             pstmt.setString(2, equipamento.getModelo());
             pstmt.setString(3, equipamento.getFabricante());
-            pstmt.setInt(4, equipamento.getCodigo());
+            pstmt.setString(4, equipamento.getDataAquisicao());
+            pstmt.setInt(5, equipamento.getVidaUtil());
+            pstmt.setString(6, equipamento.getLocalizacao());
+            pstmt.setString(7, equipamento.getStatus());
+            pstmt.setInt(8, equipamento.getCodigo());
             int rowsAffected = pstmt.executeUpdate();
             if (rowsAffected > 0) {
                 System.out.println("Equipamento atualizado com sucesso!");

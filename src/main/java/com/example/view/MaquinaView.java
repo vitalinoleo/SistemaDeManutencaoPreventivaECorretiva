@@ -11,78 +11,113 @@ import java.util.List;
 
 public class MaquinaView extends JFrame {
     private MaquinaController maquinaController;
-    
-    private JTextField codigoField;
-    private JTextField nomeField;
-    private JTextField modeloField;
-    private JTextField fabricanteField;
-    private JTextArea outputArea;
+    private JTextArea textArea;
+    private JTextField codigoField, nomeField, modeloField, fabricanteField, dataAquisicaoField, vidaUtilField, localizacaoField, statusField;
 
     public MaquinaView() {
         maquinaController = new MaquinaController();
-        setupUI();
+        criarInterface();
     }
 
-    private void setupUI() {
-        setTitle("Gerenciamento de Máquinas");
-        setSize(400, 400);
+    private void criarInterface() {
+        setTitle("Gerenciador de Máquinas");
+        setSize(600, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        // Formulário de entrada
-        JPanel formPanel = new JPanel(new GridLayout(10, 5));
-        
-        formPanel.add(new JLabel("Código:"));
-        codigoField = new JTextField();
-        formPanel.add(codigoField);
-        
-        formPanel.add(new JLabel("Nome:"));
-        nomeField = new JTextField();
-        formPanel.add(nomeField);
-        
-        formPanel.add(new JLabel("Modelo:"));
-        modeloField = new JTextField();
-        formPanel.add(modeloField);
-        
-        formPanel.add(new JLabel("Fabricante:"));
-        fabricanteField = new JTextField();
-        formPanel.add(fabricanteField);
+        // Painel para os campos de entrada
+        JPanel inputPanel = new JPanel();
+        inputPanel.setLayout(new GridLayout(9, 2));
 
-        JButton addButton = new JButton("Adicionar Máquina");
-        addButton.addActionListener(new ActionListener() {
+        inputPanel.add(new JLabel("Código:"));
+        codigoField = new JTextField();
+        inputPanel.add(codigoField);
+
+        inputPanel.add(new JLabel("Nome:"));
+        nomeField = new JTextField();
+        inputPanel.add(nomeField);
+
+        inputPanel.add(new JLabel("Modelo:"));
+        modeloField = new JTextField();
+        inputPanel.add(modeloField);
+
+        inputPanel.add(new JLabel("Fabricante:"));
+        fabricanteField = new JTextField();
+        inputPanel.add(fabricanteField);
+
+        inputPanel.add(new JLabel("Data de Aquisição (YYYY-MM-DD):"));
+        dataAquisicaoField = new JTextField();
+        inputPanel.add(dataAquisicaoField);
+
+        inputPanel.add(new JLabel("Vida Útil (anos):"));
+        vidaUtilField = new JTextField();
+        inputPanel.add(vidaUtilField);
+
+        inputPanel.add(new JLabel("Localização:"));
+        localizacaoField = new JTextField();
+        inputPanel.add(localizacaoField);
+
+        inputPanel.add(new JLabel("Status:"));
+        statusField = new JTextField();
+        inputPanel.add(statusField);
+
+        add(inputPanel, BorderLayout.NORTH);
+
+        // Área de texto para saída
+        textArea = new JTextArea();
+        textArea.setEditable(false);
+        add(new JScrollPane(textArea), BorderLayout.CENTER);
+
+        // Painel de botões
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout());
+
+        JButton adicionarButton = new JButton("Adicionar Máquina");
+        adicionarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 adicionarMaquina();
             }
         });
-        
-        JButton listButton = new JButton("Listar Máquinas");
-        listButton.addActionListener(new ActionListener() {
+        buttonPanel.add(adicionarButton);
+
+        JButton listarButton = new JButton("Listar Máquinas");
+        listarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 listarMaquinas();
             }
         });
+        buttonPanel.add(listarButton);
 
-        JButton removeButton = new JButton("Remover Máquina");
-        removeButton.addActionListener(new ActionListener() {
+        JButton buscarButton = new JButton("Buscar Máquina");
+        buscarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buscarMaquina();
+            }
+        });
+        buttonPanel.add(buscarButton);
+
+        JButton atualizarButton = new JButton("Atualizar Máquina");
+        atualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                atualizarMaquina();
+            }
+        });
+        buttonPanel.add(atualizarButton);
+
+        JButton removerButton = new JButton("Remover Máquina");
+        removerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 removerMaquina();
             }
         });
+        buttonPanel.add(removerButton);
 
-        formPanel.add(addButton);
-        formPanel.add(listButton);
-        formPanel.add(removeButton);
-
-        outputArea = new JTextArea();
-        outputArea.setEditable(false);
-
-        add(formPanel, BorderLayout.NORTH);
-        add(new JScrollPane(outputArea), BorderLayout.CENTER);
-
-        setVisible(true);
+        add(buttonPanel, BorderLayout.SOUTH);
     }
 
     private void adicionarMaquina() {
@@ -91,37 +126,85 @@ public class MaquinaView extends JFrame {
             String nome = nomeField.getText();
             String modelo = modeloField.getText();
             String fabricante = fabricanteField.getText();
+            String dataAquisicao = dataAquisicaoField.getText();
+            int vidaUtil = Integer.parseInt(vidaUtilField.getText());
+            String localizacao = localizacaoField.getText();
+            String status = statusField.getText();
 
-            Maquina maquina = new Maquina(codigo, nome, modelo, fabricante);
-            maquinaController.cadastrarMaquina(maquina);
-            outputArea.append("Máquina adicionada: " + maquina + "\n");
+            maquinaController.adicionarMaquina(codigo, nome, modelo, fabricante, dataAquisicao, vidaUtil, localizacao, status);
+            textArea.append("Máquina adicionada com sucesso!\n");
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Código deve ser um número válido.");
+            textArea.append("Erro: Verifique os campos numéricos!\n");
         }
     }
 
     private void listarMaquinas() {
         List<Maquina> maquinas = maquinaController.listarMaquinas();
-        outputArea.setText(""); // Limpa a área de saída
-        for (Maquina maquina : maquinas) {
-            outputArea.append(maquina + "\n");
+        textArea.setText(""); // Limpa a área de texto
+        if (maquinas.isEmpty()) {
+            textArea.append("Nenhuma máquina encontrada.\n");
+        } else {
+            for (Maquina maquina : maquinas) {
+                textArea.append(maquina + "\n");
+            }
+        }
+    }
+
+    private void buscarMaquina() {
+        try {
+            int codigo = Integer.parseInt(codigoField.getText());
+            Maquina maquina = maquinaController.buscarMaquina(codigo);
+            textArea.setText(""); // Limpa a área de texto
+            if (maquina != null) {
+                textArea.append(maquina + "\n");
+            } else {
+                textArea.append("Máquina não encontrada.\n");
+            }
+        } catch (NumberFormatException e) {
+            textArea.append("Erro: Código deve ser um número!\n");
+        }
+    }
+
+    private void atualizarMaquina() {
+        try {
+            int codigo = Integer.parseInt(codigoField.getText());
+            String nome = nomeField.getText();
+            String modelo = modeloField.getText();
+            String fabricante = fabricanteField.getText();
+            String dataAquisicao = dataAquisicaoField.getText();
+            int vidaUtil = Integer.parseInt(vidaUtilField.getText());
+            String localizacao = localizacaoField.getText();
+            String status = statusField.getText();
+
+            boolean sucesso = maquinaController.atualizarMaquina(codigo, nome, modelo, fabricante, dataAquisicao, vidaUtil, localizacao, status);
+            if (sucesso) {
+                textArea.append("Máquina atualizada com sucesso!\n");
+            } else {
+                textArea.append("Falha ao atualizar a máquina.\n");
+            }
+        } catch (NumberFormatException e) {
+            textArea.append("Erro: Verifique os campos numéricos!\n");
         }
     }
 
     private void removerMaquina() {
         try {
             int codigo = Integer.parseInt(codigoField.getText());
-            if (maquinaController.removerMaquina(codigo)) {
-                outputArea.append("Máquina removida com sucesso.\n");
+            boolean sucesso = maquinaController.removerMaquina(codigo);
+            if (sucesso) {
+                textArea.append("Máquina removida com sucesso!\n");
             } else {
-                outputArea.append("Máquina não encontrada.\n");
+                textArea.append("Falha ao remover a máquina.\n");
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Código deve ser um número válido.");
+            textArea.append("Erro: Código deve ser um número!\n");
         }
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new MaquinaView());
+        SwingUtilities.invokeLater(() -> {
+            MaquinaView view = new MaquinaView();
+            view.setVisible(true);
+        });
     }
 }

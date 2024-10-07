@@ -80,7 +80,7 @@ public class Maquina {
     }
 
     public String getStatus(){
-        return localizacao;
+        return status;
     }
 
     public void setStatus(String status){
