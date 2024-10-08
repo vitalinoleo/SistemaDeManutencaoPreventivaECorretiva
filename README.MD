@@ -92,134 +92,135 @@ O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para
 | + setNome(String)   |<br>
 | + getModelo(): String|<br>
 | + setModelo(String) |<br>
-| + getFabricante(): String |
-| + setFabricante(String) |
-| + getDataAquisicao(): String |
-| + setDataAquisicao(String) |
-| + getVidaUtil(): int|
-| + setVidaUtil(int)  |
-| + getLocalizacao(): String |
-| + setLocalizacao(String) |
-| + getStatus(): String|
-| + setStatus(String)  |
-| + toString(): String |
-+---------------------+
-           ^
-           |
-           |
-+---------------------+
-|      Maquina        |
-+---------------------+
-| - codigo: int       |
-| - nome: String      |
-| - modelo: String    |
-| - fabricante: String |
-| - dataAquisicao: String |
-| - vidaUtil: int     |
-| - localizacao: String|
-| - status: String    |
-+---------------------+
-| + getCodigo(): int  |
-| + setCodigo(int)    |
-| + getNome(): String |
-| + setNome(String)   |
-| + getModelo(): String|
-| + setModelo(String) |
-| + getFabricante(): String |
-| + setFabricante(String) |
-| + getDataAquisicao(): String |
-| + setDataAquisicao(String) |
-| + getVidaUtil(): int|
-| + setVidaUtil(int)  |
-| + getLocalizacao(): String |
-| + setLocalizacao(String) |
-| + getStatus(): String|
-| + setStatus(String)  |
-| + toString(): String |
-+---------------------+
+| + getFabricante(): String |<br>
+| + setFabricante(String) |<br>
+| + getDataAquisicao(): String |<br>
+| + setDataAquisicao(String) |<br>
+| + getVidaUtil(): int|<br>
+| + setVidaUtil(int)  |<br>
+| + getLocalizacao(): String |<br>
+| + setLocalizacao(String) |<br>
+| + getStatus(): String|<br>
+| + setStatus(String)  |<br>
+| + toString(): String |<br>
++---------------------+<br>
+<br>
++---------------------+<br>
+|      Maquina        |<br>
++---------------------+<br>
+| - codigo: int       |<br>
+| - nome: String      |<br>
+| - modelo: String    |<br>
+| - fabricante: String |<br>
+| - dataAquisicao: String |<br>
+| - vidaUtil: int     |<br>
+| - localizacao: String|<br>
+| - status: String    |<br>
++---------------------+<br>
+| + getCodigo(): int  |<br>
+| + setCodigo(int)    |<br>
+| + getNome(): String |<br>
+| + setNome(String)   |<br>
+| + getModelo(): String|<br>
+| + setModelo(String) |<br>
+| + getFabricante(): String |<br>
+| + setFabricante(String) |<br>
+| + getDataAquisicao(): String |<br>
+| + setDataAquisicao(String) |<br>
+| + getVidaUtil(): int|<br>
+| + setVidaUtil(int)  |<br>
+| + getLocalizacao(): String |<br>
+| + setLocalizacao(String) |<br>
+| + getStatus(): String|<br>
+| + setStatus(String)  |<br>
+| + toString(): String |<br>
++---------------------+<br>
+<br>
 
-+---------------------+
-|      Manutencao     |
-+---------------------+
-| - id_maquina: int   |
-| - dataManutencao: LocalDate |
-| - tipoIntervencao: String |
-| - pecasTrocadas: String |
-| - tempoParada: int  |
-| - tecnicoResponsavel: String |
-| - observacoes: String|
-+---------------------+
-| + getId_maquina(): int |
-| + getDataManutencao(): LocalDate |
-| + getTipoIntervencao(): String |
-| + getPecasTrocadas(): String |
-| + getTempoParada(): int |
-| + getTecnicoResponsavel(): String |
-| + getObservacoes(): String |
-| + toString(): String |
-+---------------------+
++---------------------+<br>
+|      Manutencao     |<br>
++---------------------+<br>
+| - id_maquina: int   |<br>
+| - dataManutencao: LocalDate |<br>
+| - tipoIntervencao: String |<br>
+| - pecasTrocadas: String |<br>
+| - tempoParada: int  |<br>
+| - tecnicoResponsavel: String |<br>
+| - observacoes: String|<br>
++---------------------+<br>
+| + getId_maquina(): int |<br>
+| + getDataManutencao(): LocalDate |<br>
+| + getTipoIntervencao(): String |<br>
+| + getPecasTrocadas(): String |<br>
+| + getTempoParada(): int |<br>
+| + getTecnicoResponsavel(): String |<br>
+| + getObservacoes(): String |<br>
+| + toString(): String |<br>
++---------------------+<br>
+<br>
 
 **diagrama de fluxo**
-+----------------------+
-|  Registra  nome      |
-|  Registra Mtricula   |   
-+----------------------+
-          |
-          v
-+----------------------+
-|  Primeira Tela      |
-|   Equipamento       |
-|   Maquina           |
-|   Manutencao        |
-+----------------------+
-
+<br>
++----------------------+<br>
+|  Registra  nome      |<br>
+|  Registra Mtricula   |   <br>
++----------------------+<br>
+<br>
++----------------------+<br>
+|  Primeira Tela      |<br>
+|   Equipamento       |<br>
+|   Maquina           |<br>
+|   Manutencao        |<br>
++----------------------+<br>
+<br>
 
 **Diagrama de uso**
-+---------------------------------------+
-|               Usuário                 |
-+---------------------------------------+
-        |                   |                   
-        |                   |                   
-        |                   |                   
-        |                   |                   
-        v                   v                   
-+------------------+    +-------------------+
-| Adicionar Máquina |    | Adicionar Equipamento |
-+------------------+    +-------------------+
-        |                   |
-        v                   v
-+------------------+    +-------------------+
-| Listar Máquinas  |    | Listar Equipamentos |
-+------------------+    +-------------------+
-        |                   |
-        v                   v
-+------------------+    +-------------------+
-| Buscar Máquina    |    | Buscar Equipamento  |
-+------------------+    +-------------------+
-        |                   |
-        v                   v
-+------------------+    +-------------------+
-| Atualizar Máquina |    | Atualizar Equipamento |
-+------------------+    +-------------------+
-        |                   |
-        v                   v
-+------------------+    +-------------------+
-| Remover Máquina   |    | Remover Equipamento  |
-+------------------+    +-------------------+
-        |                   |
-        v                   v
-+------------------+    +-------------------+
-| Adicionar Manutenção |    | Listar Manutenções |
-+------------------+    +-------------------+
-        |                   |
-        v                   v
-+------------------+    +-------------------+
-| Buscar Manutenção |    | Atualizar Manutenção |
-+------------------+    +-------------------+
-        |                   
-        v                  
-+------------------+  
-| Remover Manutenção|    
-+------------------+    
+<br>
++---------------------------------------+<br>
+|               Usuário                 |<br>
++---------------------------------------+<br>
+        |                   |            <br>   
+        |                   |            <br>   
+        |                   |            <br>   
+        |                   |            <br>   
+        v                   v            <br>   
++------------------+    +-------------------+<br>
+| Adicionar Máquina |    | Adicionar Equipamento |<br>
++------------------+    +-------------------+<br>
+        |                   |<br>
+        v                   v<br>
++------------------+    +-------------------+<br>
+| Listar Máquinas  |    | Listar Equipamentos |<br>
++------------------+    +-------------------+<br>
+        |                   |<br>
+        v                   v<br>
++------------------+    +-------------------+<br>
+| Buscar Máquina    |    | Buscar Equipamento  |<br>
++------------------+    +-------------------+<br>
+        |                   |<br>
+        v                   v<br>
++------------------+    +-------------------+<br>
+| Atualizar Máquina |    | Atualizar Equipamento |<br>
++------------------+    +-------------------+<br>
+        |                   |<br>
+        v                   v<br>
++------------------+    +-------------------+<br>
+| Remover Máquina   |    | Remover Equipamento  |<br>
++------------------+    +-------------------+<br>
+        |                   |<br>
+        v                   v<br>
++------------------+    +-------------------+<br>
+| Adicionar Manutenção |    | Listar Manutenções |<br>
++------------------+    +-------------------+<br>
+        |                   |<br>
+        v                   v<br>
++------------------+    +-------------------+<br>
+| Buscar Manutenção |    | Atualizar Manutenção |<br>
++------------------+    +-------------------+<br>
+        |                   <br>
+        v                  <br>
++------------------+  <br>
+| Remover Manutenção|    <br>
++------------------+    <br>
 
 # SistemaDeManutencaoPreventivaECorretiva
