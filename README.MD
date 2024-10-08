@@ -73,25 +73,25 @@ O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para
 
 
 ## Diagramas
-**diagrama de classe**
-+---------------------+
-|      Equipamento    |
-+---------------------+
-| - codigo: int       |
-| - nome: String      |
-| - modelo: String    |
-| - fabricante: String |
-| - dataAquisicao: String |
-| - vidaUtil: int     |
-| - localizacao: String|
-| - status: String    |
-+---------------------+
-| + getCodigo(): int  |
-| + setCodigo(int)    |
-| + getNome(): String |
-| + setNome(String)   |
-| + getModelo(): String|
-| + setModelo(String) |
+**diagrama de classe** <br>
++---------------------+<br>
+|      Equipamento    |<br>
++---------------------+<br>
+| - codigo: int       |<br>
+| - nome: String      |<br>
+| - modelo: String    |<br>
+| - fabricante: String |<br>
+| - dataAquisicao: String |<br>
+| - vidaUtil: int     |<br>
+| - localizacao: String|<br>
+| - status: String    |<br>
++---------------------+<br>
+| + getCodigo(): int  |<br>
+| + setCodigo(int)    |<br>
+| + getNome(): String |<br>
+| + setNome(String)   |<br>
+| + getModelo(): String|<br>
+| + setModelo(String) |<br>
 | + getFabricante(): String |
 | + setFabricante(String) |
 | + getDataAquisicao(): String |
