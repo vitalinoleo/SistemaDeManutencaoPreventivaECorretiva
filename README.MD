@@ -71,4 +71,155 @@ O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para
 - Agenda de cada técnico.
 - Especialização do técnico para cada tipo de máquina ou problema.
 
+
+## Diagramas
+**diagrama de classe**
++---------------------+
+|      Equipamento    |
++---------------------+
+| - codigo: int       |
+| - nome: String      |
+| - modelo: String    |
+| - fabricante: String |
+| - dataAquisicao: String |
+| - vidaUtil: int     |
+| - localizacao: String|
+| - status: String    |
++---------------------+
+| + getCodigo(): int  |
+| + setCodigo(int)    |
+| + getNome(): String |
+| + setNome(String)   |
+| + getModelo(): String|
+| + setModelo(String) |
+| + getFabricante(): String |
+| + setFabricante(String) |
+| + getDataAquisicao(): String |
+| + setDataAquisicao(String) |
+| + getVidaUtil(): int|
+| + setVidaUtil(int)  |
+| + getLocalizacao(): String |
+| + setLocalizacao(String) |
+| + getStatus(): String|
+| + setStatus(String)  |
+| + toString(): String |
++---------------------+
+           ^
+           |
+           |
++---------------------+
+|      Maquina        |
++---------------------+
+| - codigo: int       |
+| - nome: String      |
+| - modelo: String    |
+| - fabricante: String |
+| - dataAquisicao: String |
+| - vidaUtil: int     |
+| - localizacao: String|
+| - status: String    |
++---------------------+
+| + getCodigo(): int  |
+| + setCodigo(int)    |
+| + getNome(): String |
+| + setNome(String)   |
+| + getModelo(): String|
+| + setModelo(String) |
+| + getFabricante(): String |
+| + setFabricante(String) |
+| + getDataAquisicao(): String |
+| + setDataAquisicao(String) |
+| + getVidaUtil(): int|
+| + setVidaUtil(int)  |
+| + getLocalizacao(): String |
+| + setLocalizacao(String) |
+| + getStatus(): String|
+| + setStatus(String)  |
+| + toString(): String |
++---------------------+
+
++---------------------+
+|      Manutencao     |
++---------------------+
+| - id_maquina: int   |
+| - dataManutencao: LocalDate |
+| - tipoIntervencao: String |
+| - pecasTrocadas: String |
+| - tempoParada: int  |
+| - tecnicoResponsavel: String |
+| - observacoes: String|
++---------------------+
+| + getId_maquina(): int |
+| + getDataManutencao(): LocalDate |
+| + getTipoIntervencao(): String |
+| + getPecasTrocadas(): String |
+| + getTempoParada(): int |
+| + getTecnicoResponsavel(): String |
+| + getObservacoes(): String |
+| + toString(): String |
++---------------------+
+
+**diagrama de fluxo**
++----------------------+
+|  Registra  nome      |
+|  Registra Mtricula   |   
++----------------------+
+          |
+          v
++----------------------+
+|  Primeira Tela      |
+|   Equipamento       |
+|   Maquina           |
+|   Manutencao        |
++----------------------+
+
+
+**Diagrama de uso**
++---------------------------------------+
+|               Usuário                 |
++---------------------------------------+
+        |                   |                   
+        |                   |                   
+        |                   |                   
+        |                   |                   
+        v                   v                   
++------------------+    +-------------------+
+| Adicionar Máquina |    | Adicionar Equipamento |
++------------------+    +-------------------+
+        |                   |
+        v                   v
++------------------+    +-------------------+
+| Listar Máquinas  |    | Listar Equipamentos |
++------------------+    +-------------------+
+        |                   |
+        v                   v
++------------------+    +-------------------+
+| Buscar Máquina    |    | Buscar Equipamento  |
++------------------+    +-------------------+
+        |                   |
+        v                   v
++------------------+    +-------------------+
+| Atualizar Máquina |    | Atualizar Equipamento |
++------------------+    +-------------------+
+        |                   |
+        v                   v
++------------------+    +-------------------+
+| Remover Máquina   |    | Remover Equipamento  |
++------------------+    +-------------------+
+        |                   |
+        v                   v
++------------------+    +-------------------+
+| Adicionar Manutenção |    | Listar Manutenções |
++------------------+    +-------------------+
+        |                   |
+        v                   v
++------------------+    +-------------------+
+| Buscar Manutenção |    | Atualizar Manutenção |
++------------------+    +-------------------+
+        |                   
+        v                  
++------------------+  
+| Remover Manutenção|    
++------------------+    
+
 # SistemaDeManutencaoPreventivaECorretiva

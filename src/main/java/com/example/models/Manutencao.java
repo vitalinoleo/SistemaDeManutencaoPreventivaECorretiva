@@ -3,6 +3,7 @@ package com.example.models;
 import java.time.LocalDate;
 
 public class Manutencao {
+    private int id_maquina;
     private LocalDate dataManutencao; // Data da manutenção
     private String tipoIntervencao; // Tipo de intervenção (preventiva ou corretiva)
     private String pecasTrocadas; // Peças trocadas ou reparadas
@@ -11,16 +12,24 @@ public class Manutencao {
     private String observacoes; // Observações sobre o estado do equipamento
 
     public Manutencao(LocalDate dataManutencao, String tipoIntervencao, String pecasTrocadas, 
-                      int tempoParada, String tecnicoResponsavel, String observacoes) {
+                      int tempoParada, String tecnicoResponsavel, String observacoes, int id_maquina) {
         this.dataManutencao = dataManutencao;
         this.tipoIntervencao = tipoIntervencao;
         this.pecasTrocadas = pecasTrocadas;
         this.tempoParada = tempoParada;
         this.tecnicoResponsavel = tecnicoResponsavel;
         this.observacoes = observacoes;
+        this.id_maquina = id_maquina;
     }
 
     // Getters e Setters
+    public int getId_maquina(){
+        return id_maquina;
+    }
+
+    public void setId_maquina(int id_maquina){
+        this.id_maquina = id_maquina;
+    }
     public LocalDate getDataManutencao() {
         return dataManutencao;
     }
@@ -76,6 +85,7 @@ public class Manutencao {
                 ", Peças Trocadas: " + pecasTrocadas +
                 ", Tempo de Parada: " + tempoParada + " horas" +
                 ", Técnico Responsável: " + tecnicoResponsavel +
-                ", Observações: " + observacoes;
+                ", Observações: " + observacoes +
+                ", id maquina:" + id_maquina;
     }
 }
