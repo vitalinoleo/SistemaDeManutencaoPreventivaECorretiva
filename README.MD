@@ -179,41 +179,40 @@ O Sistema de Manutenção Preventiva e Corretiva é uma solução projetada para
 +---------------------------------------+<br>
 |               Usuário                 |<br>
 +---------------------------------------+<br>
-        |                   |            <br>   
-        |                   |            <br>   
-        |                   |            <br>   
-        |                   |            <br>   
-        v                   v            <br>   
+        |                   |            
+        |                   |            
+        |                   |           
+        |                   |            
+        v                   v           
 +------------------+    +-------------------+<br>
 | Adicionar Máquina |    | Adicionar Equipamento |<br>
 +------------------+    +-------------------+<br>
-        |                   |<br>
-        v                   v<br>
+        |                   |
+        v                   v
 +------------------+    +-------------------+<br>
 | Listar Máquinas  |    | Listar Equipamentos |<br>
 +------------------+    +-------------------+<br>
-        |                   |<br>
-        v                   v<br>
+        |                   |
+        v                   v
 +------------------+    +-------------------+<br>
 | Buscar Máquina    |    | Buscar Equipamento  |<br>
 +------------------+    +-------------------+<br>
-        |                   |<br>
-        v                   v<br>
+        |                   |        v                   v
 +------------------+    +-------------------+<br>
 | Atualizar Máquina |    | Atualizar Equipamento |<br>
 +------------------+    +-------------------+<br>
-        |                   |<br>
-        v                   v<br>
+        |                   |
+        v                   v
 +------------------+    +-------------------+<br>
 | Remover Máquina   |    | Remover Equipamento  |<br>
 +------------------+    +-------------------+<br>
-        |                   |<br>
-        v                   v<br>
+        |                   |
+        v                   v
 +------------------+    +-------------------+<br>
 | Adicionar Manutenção |    | Listar Manutenções |<br>
 +------------------+    +-------------------+<br>
-        |                   |<br>
-        v                   v<br>
+        |                   |
+        v                   v
 +------------------+    +-------------------+<br>
 | Buscar Manutenção |    | Atualizar Manutenção |<br>
 +------------------+    +-------------------+<br>
